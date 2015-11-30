@@ -27,6 +27,14 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
+        /*
+        var cell = tableView.dequeueReusableCellWithIdentifier(ROOT_CELL_IDENTIFIER) as UITableViewCell!;
+        if(cell == nil)
+        {
+            cell = UITableViewCell(style:.Default,reuseIdentifier:ROOT_CELL_IDENTIFIER);
+        }
+        */
+
         let cell = tableView.dequeueReusableCellWithIdentifier(ROOT_CELL_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = String("Index path: \(indexPath.row+1)")
             
