@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController" customModule="SwiftPlayFor5" customModuleProvider="target">
             <connections>
+                <outlet property="rootTableView" destination="bMs-FA-6eu" id="BAt-Xr-QaT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

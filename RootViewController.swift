@@ -8,8 +8,12 @@
 
 import UIKit
 
+let ROOT_CELL_IDENTIFIER = "rootCell"
+
 class RootViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var rootTableView: UITableView?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -17,13 +21,15 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         self.navigationItem.title = "Main"
         self.view.backgroundColor = UIColor.blueColor()
+        
+        self.rootTableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: ROOT_CELL_IDENTIFIER)
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "RootCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier(ROOT_CELL_IDENTIFIER, forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = String("Index path: \(indexPath.row+1)")
-        
+            
         return cell;
     }
     
@@ -34,7 +40,7 @@ class RootViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        return 50;
+        return 60;
     }
     
     override func didReceiveMemoryWarning() {
